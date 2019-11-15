@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
   fallback = BookClientFallback.class,
   qualifier = "bookClient"
 )
-public interface BookClient {
+public interface IBookClient {
 
     @RequestMapping(method = RequestMethod.GET, path = "/book/{id}")
     Book findById(@PathVariable("id") String id);

@@ -36,7 +36,7 @@ public class BookClientTest {
     public static WireMockClassRule wiremock = new WireMockClassRule(wireMockConfig().dynamicPort());
 
     @Autowired
-    public BookClient bookClient;
+    public IBookClient bookClient;
 
     @Before
     public void setup() throws IOException {

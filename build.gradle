@@ -1,9 +1,8 @@
 buildscript {
     ext {
         springBootVersion = '2.1.6.RELEASE'
-    }
-    ext {
         springCloudVersion = 'Greenwich.RELEASE'
+        karateVersion = '0.9.4'
     }
     repositories {
         mavenCentral()
@@ -30,11 +29,20 @@ repositories {
     mavenCentral()
 }
 
-ext {
-    springCloudVersion = 'Greenwich.RELEASE'
+sourceSets {
+    test {
+        java {
+            srcDir file('src/test/java')
+        }
+        resources {
+            srcDir file('src/test/java')
+            exclude '**/*.java'
+        }
+    }
 }
 
 ext {
+    springCloudVersion = 'Greenwich.RELEASE'
     springBootVersion = '2.1.6.RELEASE'
 }
 
@@ -43,15 +51,16 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web-services')
     compile('org.springframework.cloud:spring-cloud-starter-openfeign')
     compile('org.springframework.cloud:spring-cloud-starter-config')
-    compile("org.springframework.boot:spring-boot-starter-actuator")
-    compile("com.fasterxml.jackson.core:jackson-databind:2.9.4")
-    compile("org.springframework.cloud:spring-cloud-starter-netflix-hystrix")
-    compile("org.springframework.cloud:spring-cloud-starter-ribbon:1.4.7.RELEASE")
-    compile group: 'com.netflix.ribbon', name: 'ribbon', version: '2.2.2'
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('com.fasterxml.jackson.core:jackson-databind:2.9.4')
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-hystrix')
+    compile('org.springframework.cloud:spring-cloud-starter-ribbon:1.4.7.RELEASE')
+    compile('com.netflix.ribbon:ribbon:2.2.2')
     compileOnly('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('junit:junit:4.12')
-    testCompile group: 'com.github.tomakehurst', name: 'wiremock', version: '2.25.1'
+    testCompile('com.github.tomakehurst:wiremock:2.25.1')
+    testCompile 'com.intuit.karate:karate-junit4:' + karateVersion
 }
 
 dependencyManagement {
