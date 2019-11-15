@@ -1,0 +1,15 @@
+feign:
+  hystrix:
+    enabled: true
+eureka:
+  client:
+    enabled: false
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+ribbon:
+  ReadTimeout: 10000

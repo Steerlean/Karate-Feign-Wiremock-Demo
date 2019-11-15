@@ -28,12 +28,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(properties = {
-  "feign.hystrix.enabled=true",
-  "eureka.client.enabled=false",
-  "hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds=10000",
-  "ribbon.ReadTimeout=10000"
-})
+@SpringBootTest()
 @ContextConfiguration(classes = { BookClientTest.LocalRibbonClientConfiguration.class })
 public class BookClientTest {
 
@@ -64,6 +59,16 @@ public class BookClientTest {
     }
 
     @Test
+    public void testBookTestStringFallback() {
+        stubFor(get(urlEqualTo("/booktest")).willReturn(aResponse().withStatus(404)));
+
+        String result = bookClient.bookTest();
+
+        assertNotNull("should not be null", result);
+        assertThat(result, is("Fallback123"));
+    }
+
+    @Test
     public void testFindById() {
         Book result = bookClient.findById("12345");
 
@@ -73,7 +78,7 @@ public class BookClientTest {
 
     @Test
     public void testFindByIdFallback() {
-        stubFor(get(urlEqualTo("/book/12345")).willReturn(aResponse().withFixedDelay(1000)));
+        stubFor(get(urlEqualTo("/book/12345")).willReturn(aResponse().withStatus(404)));
 
         Book result = bookClient.findById("12345");
 

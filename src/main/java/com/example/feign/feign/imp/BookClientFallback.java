@@ -13,6 +13,6 @@ public class BookClientFallback implements BookClient {
 
     @Override
     public String bookTest() {
-        return "testing 123";
+        return "Fallback123";
     }
 }

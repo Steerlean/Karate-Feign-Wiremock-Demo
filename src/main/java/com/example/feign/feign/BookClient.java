@@ -18,5 +18,4 @@ public interface BookClient {
 
     @RequestMapping(method = RequestMethod.GET, path = "/booktest")
     String bookTest();
-
 }

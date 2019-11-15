@@ -4,26 +4,26 @@ public class BookBuilder extends Book {
 
     private Book book;
 
-    public BookBuilder() {
+    public BookBuilder(Book book) {
         this.book = book;
     }
 
     public BookBuilder id(String id) {
-        book.setId(id);
+        this.book.setId(id);
         return this;
     }
 
     public BookBuilder title(String title) {
-        book.setTitle(title);
+        this.book.setTitle(title);
         return this;
     }
 
     public BookBuilder isbn(String isbn) {
-        book.setIsbn(isbn);
+        this.book.setIsbn(isbn);
         return this;
     }
 
     public Book build() {
-        return book;
+        return this.book;
     }
 }

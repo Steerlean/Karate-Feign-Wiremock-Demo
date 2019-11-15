@@ -15,7 +15,7 @@ public class Book {
     }
 
     public static BookBuilder builder() {
-        return new BookBuilder();
+        return new BookBuilder(new Book());
     }
 
     @Override
