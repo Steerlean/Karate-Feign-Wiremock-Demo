@@ -13,3 +13,6 @@ hystrix:
             timeoutInMilliseconds: 10000
 ribbon:
   ReadTimeout: 10000
+bookstore-server:
+  ribbon:
+    listOfServers: http://localhost:9090

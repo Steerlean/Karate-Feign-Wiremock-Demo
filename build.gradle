@@ -61,10 +61,15 @@ dependencies {
     testCompile('junit:junit:4.12')
     testCompile('com.github.tomakehurst:wiremock:2.25.1')
     testCompile 'com.intuit.karate:karate-junit4:' + karateVersion
+    testCompile 'com.intuit.karate:karate-apache:' + karateVersion
 }
 
 dependencyManagement {
     imports {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
+}
+
+test {
+//    exclude '**/*Runner.class'
 }

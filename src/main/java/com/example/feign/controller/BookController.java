@@ -18,12 +18,12 @@ public class BookController {
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/bookTitle")
-    ResponseEntity<String> bookTitle() {
+    public ResponseEntity<String> bookTitle() {
         return ResponseEntity.ok(bookClient.bookTest());
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/bookSearch")
-    ResponseEntity<Book> bookSearch(String id) {
+    public ResponseEntity<Book> bookSearch(String id) {
         return ResponseEntity.ok(bookClient.findById(id));
     }
 
