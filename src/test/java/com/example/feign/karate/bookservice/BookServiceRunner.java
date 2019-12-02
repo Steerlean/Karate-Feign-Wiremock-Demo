@@ -18,7 +18,8 @@ public class BookServiceRunner extends TestBase {
 
         configureFor("localhost", 8080);
         stubFor(
-          get(urlEqualTo("/booktest"))
+          get(urlPathEqualTo("/booktest"))
+//          get(urlPathMatching(".*booktest.*"))
             .willReturn(aResponse()
               .withStatus(HttpStatus.OK.value())
               .withHeader("Content-Type", MediaType.TEXT_PLAIN_VALUE)

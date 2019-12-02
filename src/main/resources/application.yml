@@ -1,0 +1,27 @@
+server:
+  port: 9090
+
+bookstore-server:
+  ribbon:
+    listOfServers: http://localhost:9090
+
+#Below is test conf, also above line needs to be uncommented for actual service
+
+#feign:
+#  hystrix:
+#    enabled: true
+#eureka:
+#  client:
+#    enabled: false
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 10000
+#ribbon:
+#  ReadTimeout: 10000
+#bookstore-server:
+#  ribbon:
+#    listOfServers: http://localhost:8080

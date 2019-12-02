@@ -30,7 +30,15 @@
 
 #### How to Run  
 
+#####1. Bring up the server with test app properties  
+`SPRING_CONFIG_LOCATION=./src/test/resources/application.yml  gradle clean bootRun`
 
+#####2. Run Karate Tests  
+`gradle karate`  
+
+#### Configure to run tests on IntelliJ
+
+Edit "Run Configuration" of the Karate Test file, and enter ":karate" for the Tasks field.
 
 ###TODOs
 1. Fix Karate Tests
