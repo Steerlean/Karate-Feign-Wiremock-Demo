@@ -36,17 +36,17 @@ For a Spring-boot RestFul app using Feign client, explore -
 
 #### How to Run  
 
-#####1. Bring up the server with test app properties  
+##### 1. Bring up the server with test app properties  
 `SPRING_CONFIG_LOCATION=./src/test/resources/application.yml  gradle clean bootRun`
 
-#####2. Run Karate Tests  
+##### 2. Run Karate Tests  
 `gradle karate`  
 
 #### Configure to run tests on IntelliJ
 
 Edit "Run Configuration" of the Karate Test file, and enter ":karate" for the Tasks field.
 
-###TODOs
+### TODOs
 1. Add a flag to make Karate become integration tests by stopping service mocks
 2. Run both spring-application and karate tests in one thread
 3. Replace Wiremock with Karate Netty
