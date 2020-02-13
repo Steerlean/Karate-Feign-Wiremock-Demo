@@ -1,5 +1,11 @@
 # Repo Overview  
 
+For a Spring-boot RestFul app using Feign client, explore - 
+1. Writing API Tests using Wiremock for stubbing "Producer" services
+2. Writing API Tests using   
+    * Wiremock for stubbing "Producer" services  
+    * [Karate](https://github.com/intuit/karate) - a BDD style DSL for automation testing
+
 ## PART A  
 - API Tests by mocking Feign clients using Wiremock
 
@@ -41,6 +47,6 @@
 Edit "Run Configuration" of the Karate Test file, and enter ":karate" for the Tasks field.
 
 ###TODOs
-1. Fix Karate Tests
-2. Add Karate gradle task to run app before running karate
-3. Add a flag to make Karate become integration tests by stopping service mocks
+1. Add a flag to make Karate become integration tests by stopping service mocks
+2. Run both spring-application and karate tests in one thread
+3. Replace Wiremock with Karate Netty
